@@ -1,0 +1,34 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Registration {
+  id             Int      @id @default(autoincrement())
+  name           String
+  dateOfBirth    String
+  age            Int
+  gender         String
+  phone          String
+  email          String
+  address        String
+  town           String
+  attending      String
+  days           String?
+  department     String
+  position       String
+  accommodation  String
+  diet           String?
+  health         String?
+  createdAt      DateTime @default(now())
+}
+
+model Admin {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}
