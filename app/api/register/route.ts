@@ -26,8 +26,12 @@ export async function POST(req: Request) {
     });
 
     return Response.json({ success: true });
-  } catch (error) {
-    console.log("Registration error:", error);
-    return Response.json({ error: "Registration failed" }, { status: 500 });
-  }
+ } catch (error) {
+  console.log("Registration error:", error);
+
+  return Response.json(
+    { error: String(error) },
+    { status: 500 }
+  );
+}
 }

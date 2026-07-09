@@ -47,7 +47,11 @@ const password = String(body.password).trim();
 
     return Response.json({ success: true });
   } catch (error) {
-    console.log("Login error:", error);
-    return Response.json({ error: "Login failed" }, { status: 500 });
-  }
+  console.log("Login error:", error);
+
+  return Response.json(
+    { error: String(error) },
+    { status: 500 }
+  );
+}
 }
